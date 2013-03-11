@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+div
+{
+	background:#C9C892;
+	width:240px;
+	margin:auto;
+	border:5px solid #E1E1C4;
+	border-radius:5px;
+	padding: 10px 0 10px 10px;
+	box-shadow: 1px 1px 2px 0px grey;
+}
+div:after
+{
+	content:"";
+	display:block;
+	clear:both;
+}
+input, textarea
+{
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	color: #172B15;
+	border: 1px solid grey;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px 0px grey;
+	padding: 5px;
+	margin: 10px;
+	background-color: #E1E1C4;
+}
+textarea
+{
+	width: 200px;
+	-webkit-transition: background-color 1s ease 0s;
+	-moz-transition: background-color 1s ease 0s;
+	-ms-transition: background-color 1s ease 0s;
+	-o-transition: background-color 1s ease 0s;
+	transition: background-color 1s ease 0s;
+}
+textarea:focus
+{
+	background-color:#fff;
+}
+input:hover
+{
+	cursor:pointer;
+	background:#C9C892;
+}
+
+</style>
+<!--Write a script that prints all the numbers from 1 to N, that are not divisible by 3 and 7 at the same time-->
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var n = document.getElementById("input1").value;
+var outTxt = "";	
+for(var i=1; i<=n; i++){
+	if((i%3===0) && (i%7===0)){
+		outTxt += i+" ";
+	}
+	}
+	if(outTxt==""){
+		outTxt = "There are no numbers, that satisfy the requirements!";
+	}
+//ends here	
+	document.getElementById("output").innerHTML = outTxt;
+}
+}
+</script>
+</head>
+<body>
+<div>
+<textarea id="input1" type="text" placeholder="Enter a number."></textarea><br>
+<textarea id="output" type="text" placeholder="output"></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

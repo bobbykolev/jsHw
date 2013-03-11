@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+div
+{
+	background:#C9C892;
+	width:240px;
+	margin:auto;
+	border:5px solid #E1E1C4;
+	border-radius:5px;
+	padding: 10px 0 10px 10px;
+	box-shadow: 1px 1px 2px 0px grey;
+}
+div:after
+{
+	content:"";
+	display:block;
+	clear:both;
+}
+input, textarea
+{
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	color: #172B15;
+	border: 1px solid grey;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px 0px grey;
+	padding: 5px;
+	margin: 10px;
+	background-color: #E1E1C4;
+}
+textarea
+{
+	width: 200px;
+	-webkit-transition: background-color 1s ease 0s;
+	-moz-transition: background-color 1s ease 0s;
+	-ms-transition: background-color 1s ease 0s;
+	-o-transition: background-color 1s ease 0s;
+	transition: background-color 1s ease 0s;
+}
+textarea:focus
+{
+	background-color:#fff;
+}
+input:hover
+{
+	cursor:pointer;
+	background:#C9C892;
+}
+
+</style>
+<!--Write a script that finds the lexicographically smallest and largest property in document, window and navigator objects-->
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here
+var arr1 = [window, navigator, document];	
+
+for(var i = 0; i<3; i++){
+	var outTxt = "";
+	var arr;
+for(var property in arr1[i]){
+	outTxt += property+" ";
+}
+arr = outTxt.split(" ");
+arr.sort();	
+		outTxt = "Min:"+arr[1]+"; Max:"+arr[arr.length-1]+";";
+var id = "output" + (i+1);
+//ends here	
+	document.getElementById(id).innerHTML = outTxt;
+}
+}
+}
+</script>
+</head>
+<body>
+<div>
+<textarea id="output1" type="text" placeholder="window min and max properties"></textarea><br>
+<textarea id="output2" type="text" placeholder="navigator min and max properties"></textarea><br>
+<textarea id="output3" type="text" placeholder="document min and max properties"></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>
