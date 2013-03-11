@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Document</title>
+<title>Numbers that are not devisble by 3 and 7</title>
 <style>
 div
 {
@@ -61,7 +61,7 @@ document.getElementById("enter").onclick = function() {
 var n = document.getElementById("input1").value;
 var outTxt = "";	
 for(var i=1; i<=n; i++){
-	if((i%3===0) && (i%7===0)){
+	if((i%3!=0) && (i%7!=0)){
 		outTxt += i+" ";
 	}
 	}
