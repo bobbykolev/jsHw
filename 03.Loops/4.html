@@ -6,7 +6,7 @@
 <style>
 div
 {
-	background:#C9C892;
+	background:#c7d289;
 	width:240px;
 	margin:auto;
 	border:5px solid #E1E1C4;
@@ -23,14 +23,14 @@ div:after
 input, textarea
 {
 	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 14px;
-	color: #172B15;
+	font-size: 15px;
+	color: #304b22;
 	border: 1px solid grey;
 	border-radius: 5px;
 	box-shadow: 1px 1px 2px 0px grey;
 	padding: 5px;
 	margin: 10px;
-	background-color: #E1E1C4;
+	background-color: #dfe6bf;
 }
 textarea
 {
@@ -48,9 +48,8 @@ textarea:focus
 input:hover
 {
 	cursor:pointer;
-	background:#C9C892;
+	background:#adba6a;
 }
-
 </style>
 <!--Write a script that finds the lexicographically smallest and largest property in document, window and navigator objects-->
 <script>
@@ -79,9 +78,9 @@ var id = "output" + (i+1);
 </head>
 <body>
 <div>
-<textarea id="output1" type="text" placeholder="window min and max properties"></textarea><br>
-<textarea id="output2" placeholder="navigator min and max properties"></textarea><br>
-<textarea id="output3" placeholder="document min and max properties"></textarea><br>
+<textarea id="output1" type="text" placeholder="window min and max properties" disabled></textarea><br>
+<textarea id="output2" placeholder="navigator min and max properties" disabled></textarea><br>
+<textarea id="output3" placeholder="document min and max properties" disabled></textarea><br>
 <input id="enter" type="submit" value="EXECUTE">
 </div>
 </body>
