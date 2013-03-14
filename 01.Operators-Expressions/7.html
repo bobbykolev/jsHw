@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var number = document.getElementById("input1").value;
+var sqrtN = Math.sqrt(number);
+var outTxt = "";
+//simple check	
+if(isNaN(number)|| number<1||number>99){
+		outTxt = "Incorrect input!";
+	}else{
+		var check=true;
+		if((number == 1)||(number == 2))
+		{
+			outTxt = "The number "+number+" is prime;";
+		}
+		else
+		{
+		for(var i=2; i<=sqrtN; i++)
+		{
+			if(number%i==0)
+			{
+				outTxt = "The number "+number+" is not prime;";
+				check = true;
+				break;
+			}else
+			{
+				check = false;
+			}
+		}
+		if(check == false)
+		{
+			outTxt = "The number "+number+" is prime;";
+		}
+		}
+	}
+	document.getElementById("output").innerHTML = outTxt;
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div> 
+<span>
+<label for="check">Show/hide task condition.</label>
+<input type="checkbox" id="check" name="check">
+</span> <span id="task">Write an expression that checks if given positive integer number n (n &lt; 100) is prime. E.g. 37 is prime.</span>
+<textarea id="input1" placeholder="Enter positive integer."></textarea>  <br>
+<textarea id="output" placeholder="output" disabled></textarea>  <br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

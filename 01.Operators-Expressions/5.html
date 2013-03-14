@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var number = document.getElementById("input1").value;
+var outTxt = "";
+//simple check	
+if(isNaN(number)){
+		outTxt = "Incorrect input!";
+	}else{
+		var isOne = ((number & 8) == 8)?true:false;
+		outTxt = "The bit 3 (counting from 0) is 1: "+isOne+";";
+	}
+	document.getElementById("output").innerHTML = outTxt;
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a boolean expression for finding if the bit 3 (counting from 0) of a given integer is 1 or 0.</span>
+<textarea id="input1" placeholder="Enter a number."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

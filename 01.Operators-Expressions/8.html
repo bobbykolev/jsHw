@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var a = document.getElementById("input1").value;
+var b = document.getElementById("input2").value;
+var h = document.getElementById("input3").value;
+var outTxt = "";
+//simple check	
+if(isNaN(a)||isNaN(b)||isNaN(h)|| parseFloat(a)<0|| parseFloat(b)<0 || parseFloat(h)<0){
+		outTxt = "Incorrect input!";
+	}else{
+		var trapArea = ((parseFloat(a)+parseFloat(b))/2)*parseFloat(h);
+		outTxt = "Trapezoid's area is = "+trapArea+";";
+	}
+	document.getElementById("output").innerHTML = outTxt;
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write an expression that calculates trapezoid's area by given sides a and b and height h.</span>
+<textarea id="input1" placeholder="Enter side a."></textarea><br>
+<textarea id="input2" placeholder="Enter side b."></textarea><br>
+<textarea id="input3" placeholder="Enter height h."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var x = document.getElementById("input1").value;
+var y = document.getElementById("input2").value;
+var outTxt = "";
+//simple check	
+if(isNaN(x)||isNaN(y)){
+		outTxt = "Incorrect input!";
+	}else{
+		x=parseFloat(x);
+		y=parseFloat(y);
+		if ((((x-1) * (x-1)) + ((y-1) * (y-1))) < 9)
+		{
+			if ((y >= -1) || (x<=1) || (y<=-3))
+			{
+				outTxt = "The point("+x+", "+y+") is in the circle, but it's out of the rectangle;";
+			}
+			else
+			{
+				outTxt = "The point("+x+", "+y+") is in the specified location;";
+			}
+		 }
+		else
+		{
+			outTxt = "The point("+x+", "+y+") is out of the specified location;";
+		}
+	}
+	document.getElementById("output").innerHTML = outTxt;
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write an expression that checks if given point(x, y) is within a circle K(O, 5). Example: "The point(2, -1.2) is in the specified location;"</span>
+<textarea id="input1" placeholder="Enter x."></textarea><br>
+<textarea id="input2" placeholder="Enter y."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var number = document.getElementById("input1").value;
+var outTxt = "";
+//simple check	
+if(isNaN(number)||(number<100 && number>(-99))){
+		outTxt = "Incorrect input!";
+	}else{
+		number = parseInt(number/100);
+		var isSeven = (Math.abs(number) % 10 == 7)?true:false;
+		outTxt = "The third digit (right-to-left) is 7: "+isSeven+";";
+	}
+	document.getElementById("output").innerHTML = outTxt;
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write an expression that checks for given integer if its third digit (right-to-left) is 7. E. g. 1732  true.
+</span>
+<textarea id="input1" placeholder="Enter a number bigger than 99."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

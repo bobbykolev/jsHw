@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var width = document.getElementById("input1").value;
+var height = document.getElementById("input2").value;
+var outTxt = "";
+//simple check	
+if(isNaN(width)||isNaN(height)|| parseFloat(width)<0 || parseFloat(height)<0){
+		outTxt = "Incorrect input!";
+	}else{
+		outTxt = "The area of the rect is = "+width*height+";";
+	}
+	document.getElementById("output").innerHTML = outTxt;
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write an expression that calculates rectangle’s area by given width and height.</span>
+<textarea id="input1" placeholder="Enter width."></textarea><br>
+<textarea id="input2" placeholder="Enter height."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>
