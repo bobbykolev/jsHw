@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var firstN = document.getElementById("firstN1").value;
+var outTxt = "";
+var str;
+//simple check	
+if(isNaN(firstN)){
+		outTxt = "Incorrect input!";
+	}else{
+			firstN = parseInt(firstN);
+		 	var lastDigit = firstN % 10;
+            var middleDigit = (firstN / 10) % 10;
+            var firstDigit = (firstN / 100) % 10;
+            var teenGroup = firstN - (parseInt(firstDigit) * 100);
+			middleDigit = parseInt(middleDigit);
+            firstDigit = parseInt(firstDigit);
+            teenGroup = parseInt(teenGroup);
+            if (firstDigit == 0)
+            {
+                if (middleDigit == 0 && lastDigit == 0)
+                {
+                   outTxt = "zero";
+                }
+
+                if (middleDigit == 0 && lastDigit != 0)
+                {
+                    outTxt += Units(lastDigit);
+                }
+
+                if (middleDigit > 1)
+                {
+                    outTxt += Tens(middleDigit);
+                    outTxt += Units(lastDigit);
+                }
+                if (teenGroup > 9 && teenGroup <20 )
+                {
+                    outTxt += Teens(teenGroup);
+                }
+            }
+            if (firstDigit > 0)
+            {
+                if (middleDigit > 1)
+                {
+                    outTxt += Units(firstDigit);
+                	outTxt += "hundred ";
+                	outTxt +=  Tens(middleDigit);
+                	outTxt += Units(lastDigit);
+                }
+                if (middleDigit == 0 && lastDigit == 0)
+                {
+                    outTxt += Units(firstDigit);
+                    outTxt += "hundred";
+                }
+                if (middleDigit == 0 && lastDigit != 0)
+                {
+					outTxt += Units(firstDigit);
+					outTxt += "hundred and ";
+					outTxt +=  Units(lastDigit);
+                }
+                if (teenGroup > 9 && teenGroup < 20)
+                {
+                    outTxt += Units(firstDigit);
+                    outTxt += "hundred and ";
+                    outTxt += Teens(teenGroup);
+                }
+            }
+		
+		 function Units(lastDigit)
+        {
+            var listUnits = [ "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" ];
+            return str = ""+listUnits[lastDigit]+ " ";
+        }
+        function Tens(smiddleDigit)
+        {
+            var listTens = ["", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+           return str = ""+listTens[middleDigit - 1]+ " ";
+        }
+        function Teens(teenGroup)
+        {
+            var listTeens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" ];
+          return str = ""+listTeens[teenGroup - 10]+" ";
+        }
+		
+	}
+	//outTxt.charAt(0) = outTxt.charAt(0).toUpperCase();
+	document.getElementById("output").innerHTML = "\""+outTxt.charAt(0).toUpperCase() + outTxt.slice(1)+"\"";
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a script that converts a number in the range [0...999] to a text corresponding to its English pronunciation. Examples:<br>
+	0: "Zero"<br>
+	273: "Two hundred seventy three"<br>
+	400: "Four hundred"<br>
+	501: "Five hundred and one"<br>
+	711: "Seven hundred and eleven"
+</span>
+<textarea id="firstN1" placeholder="Enter a number between 0 and 999."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var a = document.getElementById("input1").value;
+var b = document.getElementById("input2").value;
+var c = document.getElementById("input3").value;
+var d = document.getElementById("input4").value;
+var e = document.getElementById("input5").value;
+var arr = [a,b,c,d,e];
+arr.sort();
+	document.getElementById("output").innerHTML = arr[4];
+}//ends here	
+
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a script that finds the greatest of given 5 variables.</span>
+<textarea id="input1" placeholder="Enter first var."></textarea><br>
+<textarea id="input2" placeholder="Enter second var."></textarea><br>
+<textarea id="input3" placeholder="Enter third var."></textarea><br>
+<textarea id="input4" placeholder="Enter fourth var."></textarea><br>
+<textarea id="input5" placeholder="Enter fifth var."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

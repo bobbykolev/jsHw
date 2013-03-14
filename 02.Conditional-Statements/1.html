@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var firstN = document.getElementById("input1").value;
+var secondN = document.getElementById("input2").value;
+var helper = firstN;
+var outTxt = "";
+//simple check	
+if(isNaN(firstN)||isNaN(secondN)){
+		outTxt = "Incorrect input!";
+	}else{
+		if(parseFloat(firstN)>parseFloat(secondN)){
+			firstN=secondN;
+			secondN=helper;
+			outTxt= "First number: "+firstN+";\nSecond number: "+secondN+";";
+		}else{
+			outTxt= "First number: "+firstN+";\nSecond number: "+secondN+";";
+		}
+	}
+	document.getElementById("output").innerHTML = outTxt;
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write an if statement that examines two integer variables and exchanges their values if the first one is greater than the second one.</span>
+<textarea id="input1" placeholder="Enter first number."></textarea><br>
+<textarea id="input2" placeholder="Enter second number."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

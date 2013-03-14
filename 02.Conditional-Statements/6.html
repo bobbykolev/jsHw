@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var a = document.getElementById("input1").value;
+var b = document.getElementById("input2").value;
+var c = document.getElementById("input3").value;
+var outTxt = "";
+//simple check	
+if(isNaN(a)||isNaN(b)||isNaN(c)){
+		outTxt = "Incorrect input!";
+	}else{
+		if (parseFloat(a)==0){
+                outTxt ="x = "+(parseFloat(c)/parseFloat(b));
+            }
+            else
+            {
+                var sqroot = (parseFloat(b) * parseFloat(b)) - (4 * parseFloat(a) * parseFloat(c));
+                var x1 = (-parseFloat(b) + (Math.sqrt(sqroot))) / (2 * parseFloat(a));
+                var x2 = (-parseFloat(b) - (Math.sqrt(sqroot))) / (2 * parseFloat(a));
+                if (sqroot < 0)
+                {
+                    outTxt ="x1 = There is no real number;\nx2 = There is no real number;";
+                }
+                else
+                {
+                    outTxt ="x1 = "+x1+";\nx2 = "+x2+";";
+                }
+
+            }
+	}
+	document.getElementById("output").innerHTML = outTxt;
+}//ends here	
+
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a script that enters the coefficients a, b and c of a quadratic equation
+		a*x2 + b*x + c = 0</span>
+<textarea id="input1" placeholder="Enter a."></textarea><br>
+<textarea id="input2" placeholder="Enter b."></textarea><br>
+<textarea id="input3" placeholder="Enter c."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

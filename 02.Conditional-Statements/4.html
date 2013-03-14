@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var firstN = document.getElementById("input1").value;
+var secondN = document.getElementById("input2").value;
+var thirdN = document.getElementById("input3").value;
+var outTxt = "";
+//simple check	
+if(isNaN(firstN)||isNaN(secondN)||isNaN(thirdN)){
+		outTxt = "Incorrect input!";
+	}else{
+		if(parseFloat(firstN)>parseFloat(secondN)){
+			if(parseFloat(secondN)>parseFloat(thirdN)){
+				outTxt = firstN+", "+secondN+", "+thirdN;
+			}else if(parseFloat(firstN)>parseFloat(thirdN)){
+				outTxt = firstN+", "+thirdN+", "+secondN;
+			}else{
+				outTxt = thirdN+", "+firstN+", "+secondN;
+			}
+		}else{
+			if(parseFloat(firstN)>parseFloat(thirdN)){
+				outTxt = secondN+", "+firstN+", "+thirdN;
+			}else if(parseFloat(secondN)>parseFloat(thirdN)){
+				outTxt = secondN+", "+thirdN+", "+firstN;
+			}else{
+				outTxt = thirdN+", "+secondN+", "+firstN;
+			}
+		}
+		
+	}
+	document.getElementById("output").innerHTML = outTxt;
+}//ends here	
+
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Sort 3 real values in descending order using nested if statements.</span>
+<textarea id="input1" placeholder="Enter first number."></textarea><br>
+<textarea id="input2" placeholder="Enter second number."></textarea><br>
+<textarea id="input3" placeholder="Enter third number."></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>
