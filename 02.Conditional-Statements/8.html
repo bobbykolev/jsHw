@@ -51,25 +51,25 @@ if(isNaN(firstN)){
                 if (middleDigit > 1)
                 {
                     outTxt += Units(firstDigit);
-                	outTxt += "hundred ";
+                	outTxt += " hundred and ";
                 	outTxt +=  Tens(middleDigit);
                 	outTxt += Units(lastDigit);
                 }
                 if (middleDigit == 0 && lastDigit == 0)
                 {
                     outTxt += Units(firstDigit);
-                    outTxt += "hundred";
+                    outTxt += " hundred";
                 }
                 if (middleDigit == 0 && lastDigit != 0)
                 {
 					outTxt += Units(firstDigit);
-					outTxt += "hundred and ";
+					outTxt += " hundred and ";
 					outTxt +=  Units(lastDigit);
                 }
                 if (teenGroup > 9 && teenGroup < 20)
                 {
                     outTxt += Units(firstDigit);
-                    outTxt += "hundred and ";
+                    outTxt += " hundred and ";
                     outTxt += Teens(teenGroup);
                 }
             }
@@ -77,7 +77,7 @@ if(isNaN(firstN)){
 		 function Units(lastDigit)
         {
             var listUnits = [ "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" ];
-            return str = ""+listUnits[lastDigit]+ " ";
+            return str = ""+listUnits[lastDigit]+ "";
         }
         function Tens(smiddleDigit)
         {
@@ -87,7 +87,7 @@ if(isNaN(firstN)){
         function Teens(teenGroup)
         {
             var listTeens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" ];
-          return str = ""+listTeens[teenGroup - 10]+" ";
+          return str = ""+listTeens[teenGroup - 10]+"";
         }
 		
 	}
