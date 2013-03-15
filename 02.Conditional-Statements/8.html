@@ -15,7 +15,8 @@ var str;
 //simple check	
 if(isNaN(firstN)){
 		outTxt = "Incorrect input!";
-	}else{
+	}
+	else{
 			firstN = parseInt(firstN);
 		 	var lastDigit = firstN % 10;
             var middleDigit = (firstN / 10) % 10;
@@ -73,8 +74,9 @@ if(isNaN(firstN)){
                     outTxt += Teens(teenGroup);
                 }
             }
-		
-		 function Units(lastDigit)
+				
+	}
+	 function Units(lastDigit)
         {
             var listUnits = [ "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" ];
             return str = ""+listUnits[lastDigit]+ "";
@@ -89,8 +91,6 @@ if(isNaN(firstN)){
             var listTeens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" ];
           return str = ""+listTeens[teenGroup - 10]+"";
         }
-		
-	}
 	document.getElementById("output").innerHTML = "\""+outTxt.charAt(0).toUpperCase() + outTxt.slice(1)+"\"";
 }
 //ends here	
