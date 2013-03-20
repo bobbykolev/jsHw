@@ -99,7 +99,7 @@ document.getElementById("enter").onclick = function() {
 var n = document.getElementById("input1").value;
 var outTxt = "";	
 for(var i=1; i<=n; i++){
-	if((i%3!=0) && (i%7!=0)){
+	if((i%3!=0) || (i%7!=0)){
 		outTxt += i+" ";
 	}
 	}
@@ -122,7 +122,7 @@ document.getElementById("check").onclick = function() {
 </head>
 <body>
 <div>
-<span><label for="check">Show task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
 <span id="task">Write a script that prints all the numbers from 1 to N, that are not divisible by 3 and 7 at the same time.</span>
 <textarea id="input1" placeholder="Enter a number."></textarea><br>
 <textarea id="output" placeholder="output" disabled></textarea><br>
