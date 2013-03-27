@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var arr = [2,2,3,4,2,8,9,10,2,13,2,15,18,2];
+var n = 2;
+var counter = 0;
+function count(n, arr)
+        {
+           for(var i=0; i<arr.length; i++)
+		   {
+			   if(arr[i] == n)
+			   {
+				   counter++;
+			   }
+		   }
+            return counter;
+        }
+					
+	document.getElementById("output").innerHTML = count(n, arr);
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a function that counts how many times given number appears in given array. Write a test function to check if the function is working correctly.</span>
+<textarea id="input1" placeholder="Execute to see how many times 2 occurs in the array [2,2,3,4,2,8,9,10,2,13,2,15,18,2]" disabled></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+
+function countDivs()
+        {
+            return document.getElementsByTagName("div").length;
+        }
+					
+	document.getElementById("output").innerHTML = countDivs();
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div id="one">
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a function to count the number of divs on the web page.</span>
+<textarea id="input1" placeholder="Execute to see the number of divs in the document." disabled></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+<!--<div id="two">
+<div id="three">
+<div id="for">
+<div id="five">
+</div>
+</div>
+</div>
+</div>-->
+</body>
+</html>

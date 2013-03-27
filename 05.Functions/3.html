@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var text = "We are living in an yellow submarine.";
+var word = "in";
+var counter = 0;
+
+function wordCount(word, text)
+        {
+		  var wordLength = word.length;
+		  var index = text.indexOf(word, index);
+
+          while (index != -1) 
+		  {
+        	counter++;
+       		index += wordLength;
+        	index = text.indexOf(word, index);
+		  }
+            return counter;
+        }
+					
+	document.getElementById("output").innerHTML = wordCount(word, text);
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a function that finds all the occurrences of word in a text.</span>
+<textarea id="input1" placeholder="text: We are living in an yellow submarine.; word: in; Execute to see the result." disabled></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

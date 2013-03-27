@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var n = document.getElementById("input1").value;
+var arr = [2,5,3,4,2,10,9,10,20,13,18,15,5,6];
+
+function isItBigger(n, arr)
+        {
+           var isBigger;
+		   n = parseInt(n);
+            if ((n > 0) && (n < arr.length-1))
+            {
+                if ((arr[n] > arr[n+1]) && (arr[n] > arr[n-1]))
+                {
+                    isBigger = true;
+                }
+                else
+                {
+                    isBigger = false;
+                }
+            }
+            else
+            {
+                isBigger = false;
+            }
+
+            return isBigger;
+        }
+					
+	document.getElementById("output").innerHTML = isItBigger(n, arr);
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a function that checks if the element at given position in given array of integers is bigger than its two neighbors (when such exist).</span>
+<textarea id="input1" placeholder="Enter a number between 1 and 12"></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var firstN = document.getElementById("input1").value;
+var numAsWord;
+var n;
+
+function lastDigitAsText(firstN)
+        {
+            n = firstN % 10;
+            switch (n)
+            {
+            case 1:
+                  numAsWord = "one";
+                  break;
+            case 2:
+                  numAsWord = "two";
+                  break;
+            case 3:
+                  numAsWord = "three";
+                  break;
+            case 4:
+                  numAsWord = "four";
+                  break;
+            case 5:
+                  numAsWord = "five";
+                  break;
+            case 6:
+                  numAsWord = "six";
+                  break;
+            case 7:
+                  numAsWord = "seven";
+                  break;
+            case 8:
+                  numAsWord = "eight";
+                  break;
+            case 9:
+                  numAsWord = "nine";
+                  break;
+            case 0:
+                  numAsWord = "zero";
+                  break;
+            default:
+                  numAsWord = "Enter valid number";
+                  break;
+            }
+            return numAsWord;
+        }
+					
+	document.getElementById("output").innerHTML = lastDigitAsText(firstN);
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a function that returns the last digit of given integer as an English word. Examples: 512 - "two", 1024 - "four", 12309 - "nine";</span>
+<textarea id="input1" placeholder="Enter a number"></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

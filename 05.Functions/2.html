@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet"> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var firstN = document.getElementById("input1").value;
+var numAsWord;
+var n;
+var arr = [];
+firstN = parseInt(firstN);
+function reverceDigits(firstN)
+        {
+           while(firstN > 9)
+		   {
+			   n = firstN%10;
+			   arr.push(parseInt(n));
+			   firstN = firstN/10;
+		   }
+		    n = firstN%10;
+		    arr.push(parseInt(n));
+			
+            return arr.join("");
+        }
+					
+	document.getElementById("output").innerHTML = reverceDigits(firstN);
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a function that reverses the digits of given decimal number. Example: 256 -&gt; 652.</span>
+<textarea id="input1" placeholder="Enter an integer"></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>
