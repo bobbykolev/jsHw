@@ -21,6 +21,7 @@ document.getElementById("enter").onclick = function() {
 //problem starts here	
 var template = document.getElementById('list-item').innerHTML;
 var peopleList  = "";
+var temp = '';
 function peopleFunc() {
     
   var people = [
@@ -40,9 +41,13 @@ function peopleFunc() {
 
       var len = people.length;
          
-  for(var i = 0;i < len; i++){
-        peopleList = peopleList + "<li>"+template.replace( /-\{name\}-/, people[i].name)+"</li>";
-        peopleList = peopleList + "<li>"+template.replace( /-\{age\}-/, people[i].age)+"</li>";
+  for(var i = 0; i < len; i++){
+        var temp = '';
+        peopleList += "<li>";
+        temp = template.replace(/-{name}-/, people[i].name);
+        temp = temp.replace(/-{age}-/, people[i].age);
+        peopleList += temp;
+        peopleList += "</li>";
   }
         var result =  "<ul>"+peopleList+"</ul>";
 
