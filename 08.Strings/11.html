@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+<style>
+#input1
+{
+    height:80px;
+}
+</style> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+//console.log(stringFormat("{0}, {1}","pe6o","6"));
+
+function stringFormat() {
+          var input = arguments[0];
+          
+          for (var j = 1; j < arguments.length; j++) {
+              input = placeholderReplace(input, '{' + (j - 1) + '}', arguments[j]);
+          }
+          return input;
+      }
+      function placeholderReplace(input, placeHolder, index) {
+                    return input.replace(placeHolder, index);
+                }
+
+	document.getElementById("output").innerHTML = stringFormat("{0}, {1}","pe6o","6");
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a function that formats a string using placeholders.</span>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>
