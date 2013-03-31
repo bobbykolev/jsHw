@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+<style>
+#input1
+{
+	height:110px;
+}
+</style> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+	var text = "We are <mixcase>living <upcase>yellow submarine</upcase> br</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>don't</mixcase> have <lowcase>anything</lowcase> else.";
+	var newTxt = "";
+	var upCa = false;
+	var lowCa = false;
+	var mixCa = false;
+
+function replaceFunc(text)
+        {
+
+		 for(var i=0;i<text.length;i++){
+		 	if(text[i]=='<' && text[i+1]=='u'){
+		 		i=i+8;
+		 		upCa =true;
+		 	}
+		 	if(text[i]=='<' && text[i+1]=='/' && text[i+2]=='u'){
+		 		i=i+9;
+		 		upCa =false;
+		 	}
+		 	if(text[i]=='<' && text[i+1]=='l'){
+		 		i=i+9;
+		 		lowCa =true;
+		 	}
+		 	if(text[i]=='<' && text[i+1]=='/' && text[i+2]=='l'){
+		 		i=i+10;
+		 		lowCa =false;
+		 	}
+		 	if(text[i]=='<' && text[i+1]=='m'){
+		 		i=i+9;
+		 		mixCa =true;
+		 	}
+		 	if(text[i]=='<' && text[i+1]=='/' && text[i+2]=='m'){
+		 		i=i+10;
+		 		mixCa =false;
+		 	}
+		 	if(upCa==true){
+				newTxt +=text[i].toUpperCase();
+		 	}else if(lowCa==true){
+				newTxt +=text[i].toLowerCase();
+		 	}else if(mixCa==true){
+		 		if(i&1==1){
+		 			newTxt +=text[i].toLowerCase();
+		 		}else{
+		 			newTxt +=text[i].toUpperCase();
+		 		}
+		 	}
+		 	else{
+		 		newTxt +=text[i];
+		 	}
+		 }
+
+            return newTxt;
+        }
+        
+	document.getElementById("output").innerHTML = replaceFunc(text);
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">You are given a text. Write a function that changes the text in all regions:
+&lt;upcase&gt;text&lt;/upcase&gt; to uppercase.
+&lt;lowcase>text&lt;/lowcase&gt; to lowercase
+&lt;mixcase>text&lt;/mixcase&gt; to mix casing(random)
+</span>
+<textarea id="input1" placeholder="text: &quot;We are <mixcase>living <upcase>yellow submarine</upcase> br</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>don't</mixcase> have <lowcase>anything</lowcase> else.&quot;;" disabled></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

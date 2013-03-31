@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var mail = "http://www.devbg.org/forum/index.php";
+var parsed = {};
+var txt = "";
+//console.log(parseUrl(mail));
+
+function parseUrl(mail) {
+    
+       	
+    		parsed.protocol = mail.slice(0, mail.indexOf(':'));
+    		mail = mail.replace((parsed.protocol+"://"), "");
+
+    		parsed.server = mail.slice(0, mail.indexOf('/'));
+    		mail = mail.replace((parsed.server+"/"), "");
+
+    		parsed.resource = mail;
+    	
+    return txt = "protocol: " + parsed.protocol + "\nserver: " + parsed.server +"\nresource: " + parsed.resource;
+}
+
+	document.getElementById("output").innerHTML = parseUrl(mail);
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a script that parses an URL address given in the format: [protocol]://[server]/[resource]
+and extracts from it the [protocol], [server] and [resource] elements. Return the elements in a JSON object.</span>
+<textarea id="input1" placeholder="&quot;http://www.devbg.org/forum/index.php&quot;;" disabled></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

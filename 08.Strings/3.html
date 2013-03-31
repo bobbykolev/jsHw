@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+<style>
+#input1
+{
+	height:100px;
+}
+</style> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var text = "We are living in an yellow submarine. We don't have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.";
+var word = "in";
+var counter = 0;
+
+function wordCount(word, text)
+        {
+		  text = text.toLowerCase();
+		  var wordLength = word.length;
+		  var index = text.indexOf(word, index);
+
+          while (index != -1) 
+		  {
+        	counter++;
+       		index += wordLength;
+        	index = text.indexOf(word, index);
+		  }
+            return counter;
+        }
+	document.getElementById("output").innerHTML = wordCount(word, text);
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a JavaScript function that finds how many times a substring is contained in a given text (perform case insensitive search).</span>
+<textarea id="input1" placeholder="word: &quot; in &quot;;                                         text: &quot;We are living in an yellow submarine. We don't have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.&quot;;" disabled></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

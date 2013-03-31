@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+<style>
+#input1
+{
+    height:100px;
+}
+</style> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var text = "<p>Please visit <a href=&quot;http://academy.telerik.com&quot;>our site</a> to choose a training course. Also visit <a href=&quot;www.devbg.org&quot;>our forum</a> to discuss the courses.</p>";
+
+
+function changeAhref(text) {
+
+
+            text = text.replace(/<a href=&quot;/gi, "[URL=");
+            text = text.replace(/&quot;>/gi, "]");
+            text = text.replace(/<\/a>/gi, "[/URL]");
+
+            return text;
+}
+
+	document.getElementById("output").innerHTML = changeAhref(text);
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a JavaScript function that replaces in a HTML document given as string all the tags &lt;a href= &quot; … &quot;&gt;… &lt;/a&gt; with corresponding tags [URL=…]…/URL].</span>
+<textarea id="input1" placeholder="&quot;<p>Please visit <a href=&quot;http://academy.telerik.com&quot;>our site</a> to choose a training course. Also visit <a href=&quot;www.devbg.org&quot;>our forum</a> to discuss the courses.</p>&quot;;" disabled></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+<style>
+#input1
+{
+    height:100px;
+}
+</style> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var text = "Lorizzle example@example.example.example.com ipsizzle for john_doe@john-bg.com sure sit amizzle. Nullizzle mammasay mammasa info1.academy@telerik.co.uk.";
+var result;
+var arr = [];
+//console.log(extractMails(text));
+
+function extractMails(text) {
+    
+          result = text.match(/([a-z\d_\.-]+)@([a-z\d_-]+)\.[a-z\.]{2,}[^\.\s]/ig, ", ");
+          //"result" is object, the task is to produce array (below)
+          for(var i in result){
+            arr.push(result[i]);
+          }
+          
+          return arr.join(", ");
+}
+
+	document.getElementById("output").innerHTML = extractMails(text);
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a function for extracting all email addresses from given text. All substrings that match the format <identifier>@<host>…<domain> should be recognized as emails. Return the emails as array of strings.</span>
+<textarea id="input1" placeholder="&quot;Lorizzle example@example.example.example.com ipsizzle for john_doe@john-bg.com sure sit amizzle. Nullizzle mammasay mammasa info1.academy@telerik.co.uk.&quot;;" disabled></textarea><br>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+</body>
+</html>

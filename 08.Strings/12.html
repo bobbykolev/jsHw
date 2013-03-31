@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+<style>
+#output
+{
+    height:360px;
+}
+#list-item
+{
+  display: none;
+}
+</style> 
+<script>
+window.onload = function(){
+
+document.getElementById("enter").onclick = function() {
+//problem starts here	
+var template = document.getElementById('list-item').innerHTML;
+var peopleList  = "";
+function peopleFunc() {
+    
+  var people = [
+    {
+      name: "John Doe",
+      age: 24
+    },
+    {
+      name: "Svetlin Nakov",
+      age: 33
+    },
+    {
+      name: "Pavel Nedved",
+      age: 38
+    }    
+  ];
+
+      var len = people.length;
+         
+  for(var i = 0;i < len; i++){
+        peopleList = peopleList + "<li>"+template.replace( /-\{name\}-/, people[i].name)+"</li>";
+        peopleList = peopleList + "<li>"+template.replace( /-\{age\}-/, people[i].age)+"</li>";
+  }
+        var result =  "<ul>"+peopleList+"</ul>";
+
+  return result;
+}
+
+	document.getElementById("output").innerHTML = peopleFunc();
+}
+//ends here	
+document.getElementById("check").onclick = function() {
+	if(document.getElementById("check").checked){
+	document.getElementById("task").style.display = "block";
+	}else{
+		document.getElementById("task").style.display = "none";
+	}
+}
+	document.getElementById("task").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<span><label for="check">Show/hide task condition.</label><input type="checkbox" id="check" name="check"></span>
+<span id="task">Write a function that creates a HTML UL using a template for every HTML LI. The source of the list should an array of elements. Replace all placeholders marked with –{…}–   with the value of the corresponding property of the object.</span>
+<textarea id="output" placeholder="output" disabled></textarea><br>
+<input id="enter" type="submit" value="EXECUTE">
+</div>
+
+<div data-type="template" id="list-item">
+<strong>-{name}-</strong> <span>-{age}-</span>
+</div>
+
+</body>
+</html>
