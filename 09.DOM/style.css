@@ -52,3 +52,26 @@ nav>ul li
 	text-transform: uppercase;
 	font-weight: bold;
 }
+#theUl
+{
+	list-style-type: none;
+}
+#theUl li
+{
+	float: left!important;
+}
+#theUl>li>a
+{
+	padding: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none;
+}
+#theUl>li>a:hover
+{
+	color: green!important;
+}
+#box
+{
+	max-width:300px;
+}
