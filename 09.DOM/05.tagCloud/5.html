@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>title</title>
+		<link href="../style.css" type="text/css" rel="stylesheet">
+		<script type='text/javascript' src="script.js"></script>
+		<!--[if lt IE 9]>
+		<script src="../html5shiv.js"></script>
+		<![endif]-->
+		<style type="text/css">
+		a
+		{
+			padding: 10px;
+			text-transform: uppercase;
+			font-weight: bold;
+			text-decoration: none;
+		}
+		a:hover
+		{
+			color: green;
+		}
+		#wrapper
+		{
+			list-style-type: none;
+		}
+		#wrapper li
+		{
+			display: inline!important;
+		}
+		</style>
+	</head>
+	<body>
+		<span>
+		<textarea id="area" placeholder="Enter tags separated by &quot;,&quot;"></textarea><br>
+		<input id="enter" type="submit" value="EXECUTE">
+		</span><br>
+		<ul id="wrapper">
+		</ul>
+		<section>
+			05.Create a tag cloud:
+			<ul>
+				<li>Visualize a string of tags (strings) in a given container</li>
+				<li>By given minFontSize and maxFontSize, generate the tags with different font-size, depending on the number of occurrences</li>
+			</ul>
+		</section>
+	</body>
+</html>
