@@ -4,9 +4,9 @@ window.onload = function() {
 
 		document.getElementById('wrapper').innerHTML = "";//clear divs on execute
 		var randDivs = getRandomNumber(1, 30); //we choose the boundaries
+		var wrapper = document.getElementById("wrapper");
 		for (var i = 0; i < randDivs; i++) {
 			var div2 = document.createElement("div"),
-				wrapper = document.getElementById("wrapper"),
 				theDiv = wrapper.appendChild(div2),
 				strong = document.createElement("strong"),
 				txt = document.createTextNode("div");

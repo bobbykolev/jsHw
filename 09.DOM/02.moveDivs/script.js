@@ -2,18 +2,18 @@ window.onload = function() {
 
 	document.getElementById("enter").onclick = function() {
 
-		document.getElementById('wrapper').innerHTML = "";//clear divs on execute
+		document.getElementById('wrapper').innerHTML = ""; //clear divs on execute
+		var wrapper = document.getElementById("wrapper");
 		for (var i = 0; i < 5; i++) {
 			var div2 = document.createElement("div"),
-				wrapper = document.getElementById("wrapper"),
 				theDiv = wrapper.appendChild(div2);
 			theDiv.style.position = "absolute";
 			theDiv.style.borderRadius = "50%";
 			theDiv.style.backgroundColor = getRandomColor();
 			theDiv.style.width = "50px";
 			theDiv.style.height = "50px";
-			theDiv.style.marginTop = "200px"; 
-			theDiv.style.marginLeft = "200px"; 
+			theDiv.style.marginTop = "200px";
+			theDiv.style.marginLeft = "200px";
 		}
 
 		var divs = wrapper.childNodes,
