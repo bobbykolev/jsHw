@@ -26,8 +26,14 @@ input:hover
 section
 {
 	margin: 20px;
-	color: #333;
 	font-size: 14px;
+	max-width: 300px;
+	background: #000;
+	color: #254f00;
+	border: 1px solid #8da66f;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: #dfe6bf;
 }
 textarea
 {
@@ -38,7 +44,7 @@ textarea
 	border-radius: 5px;
 	box-shadow: inset 2px 2px 2px #73875e;
 	padding: 5px;
-	margin: 10px;
+	margin: 20px;
 	background-color: #dfe6bf;
 }
 li>ul
@@ -51,7 +57,9 @@ nav>ul li
 	color: #223300;
 	text-transform: uppercase;
 	font-weight: bold;
+	cursor: pointer;
 }
+
 #theUl
 {
 	list-style-type: none;
